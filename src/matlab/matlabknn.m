@@ -14,7 +14,7 @@ labels_t = data(:, end-1);
 %data_t = X_rec;
 
 N_FOLD    = 100;
-K_SIZE    = 60;
+K_SIZE    = 30;
 FOLD_SIZE = floor(size(data_t, 1) / N_FOLD);
 accuracies = zeros(K_SIZE, 1);
 
