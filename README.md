@@ -1,4 +1,6 @@
-# Predict the type of the wine
+# Machine Learning Challenge 2014 (Aalto University)
+
+## Predict the type of the wine
 
 The task is predicting the type of the wine: White (label 0) or Red (label 1). Visualizing the data using dimensionality reduction is possible to see that the two classes are easily separable.
 
@@ -14,7 +16,7 @@ In order to predict the type of the wine using  logistic regression use the foll
 
 In this case the accuracy is pretty high (99.1% with cross validation). The approach is to run a cross validation with different values for lambda (the regularization term) and pick the best model.
 
-# Predict they quality
+## Predict they quality
 
 This task is about predicting the quality of wine using a scale between 1 and 7. Visualizing the data in 3d shows how much more complex this task is:
 
@@ -23,7 +25,7 @@ This task is about predicting the quality of wine using a scale between 1 and 7.
 </div>
 
 
-## Logistic regression
+### Logistic regression
 
 Using logistic regression does not lead to good results. In order to run the logistic regression with a one vs all classifier use the following command:
 	
@@ -35,7 +37,7 @@ It is also possible to do an exaustive feature selection. It takes a lot of time
 	cd src/logistic-regression
 	octave main_quality_fs.m
 	
-## Matlab K-NN
+### Matlab K-NN
 
 You can find the a matlab program that classifies the quality of wines in the "matlab" folder. The code uses a manual cross validation; the crucial line is:
 
@@ -60,7 +62,7 @@ The program tries a lot of values of "k" and outputs the chart of the accuracies
 <img src="misc/accuracies.png" width="400"></img>
 </div>
 
-## K-NN
+### K-NN
 
 This is my version of the K-NN classifier in octave, it utilizes a nice vectorization strategy to compute the euclidean distance between points.
 
@@ -71,7 +73,7 @@ In order to run it, it necessary to use the following commands:
 	cd src/k-nn
 	octave k-nn.m
 
-## PCA
+### PCA
 
 In the matlab folder it is possible to find the implementation of PCA, the following snippet of code shows how to use it:
 
