@@ -26,10 +26,10 @@ for k=1:K_SIZE
 
         X = data_t(training_index, :);
         y = labels_t(training_index, :);
-        
+
         X_new = data_t(validation_index, :);
         y_new = labels_t(validation_index);
-        
+
         % The value must be 'euclidean', 'cityblock', 'chebychev', or 'minkowski'.
         model = fitcknn(X, y, 'NumNeighbors', k, 'NSMethod','kdtree','Distance','minkowski','BreakTies', 'nearest', 'Standardize', true);
 
