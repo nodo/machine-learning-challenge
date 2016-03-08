@@ -26,6 +26,8 @@ T            = test(:, 1:end-2);
 test_labels  = test(:, end-1);
 
 validation_set_results = zeros(50, 2);
+disp("training...")
+t = cputime;
 i = 1;
 for lambda=0:0.2:10
   [all_theta] = oneVsAll(X, t_labels, num_labels, lambda);
@@ -36,10 +38,12 @@ for lambda=0:0.2:10
   validation_set_results(i, :) = [lambda, accuracy];
   i += 1;
 end
+printf('Total cpu time: %f seconds\n', cputime-t);
 
 % pick the best model
 [acc, idx] = max(validation_set_results(:,2));
 final_lambda = validation_set_results(idx, 1);
+printf('Final Lambda: %f\n', final_lambda);
 
 disp('Testing...')
 [all_theta] = oneVsAll([X; V], [t_labels; v_labels], num_labels, final_lambda);

@@ -46,6 +46,7 @@ i = 1;
 % try different models (in this case different values for lambda) and check the performance
 % using the validation set.
 disp('Training...')
+t = cputime;
 for lambda=0:0.2:5
   [theta, cost] = fminunc(@(t)(lrCostFunction(t, X, t_labels, lambda)), initial_theta, options);
   p = predict(theta, V);
@@ -56,10 +57,12 @@ for lambda=0:0.2:5
 
   i += 1;
 end
+printf('Total cpu time: %f seconds\n', cputime-t);
 
 % pick the best model
 [acc, idx] = max(validation_set_results(:,2));
 final_lambda = validation_set_results(idx, 1);
+printf('Final Lambda: %f\n', final_lambda);
 
 disp('Testing...')
 % check how the model generalize using the testing set

@@ -13,7 +13,7 @@ labels_t = data(:, end-1);
 %X_rec = recoverData(Z, U, dimensions);
 %data_t = X_rec;
 
-N_FOLD    = 100;
+N_FOLD    = 10;
 K_SIZE    = 30;
 FOLD_SIZE = floor(size(data_t, 1) / N_FOLD);
 accuracies = zeros(K_SIZE, 1);
@@ -31,7 +31,7 @@ for k=1:K_SIZE
         y_new = labels_t(validation_index);
 
         % The value must be 'euclidean', 'cityblock', 'chebychev', or 'minkowski'.
-        model = fitcknn(X, y, 'NumNeighbors', k, 'NSMethod','kdtree','Distance','minkowski','BreakTies', 'nearest', 'Standardize', true);
+        model = fitcknn(X, y, 'NumNeighbors', k, 'NSMethod','kdtree','Distance','minkowski','Exponent', 1, 'BreakTies', 'nearest', 'Standardize', true);
 
         predictions = predict(model, X_new);
         accuracy = sum(predictions == y_new)/length(validation_index);
@@ -41,5 +41,5 @@ for k=1:K_SIZE
 end
 
 plot(1:K_SIZE, accuracies);
-print -dpng 'accuracies.png'
+print -dpng 'accuracies-min.png'
 

@@ -1,6 +1,5 @@
 % assume that last column of X is the label
 function class = findClassFast(X, p, k)
-
   for i=1:length(p)
     X(:, i) = X(:, i) - p(i);
   end
@@ -11,7 +10,7 @@ function class = findClassFast(X, p, k)
   counters = zeros(7,1);
   for i=1:k
     counters(X(index(i), end)) += 1;
-  end
+   end
 
   #  maj = majority(counters);
   [sorted_counters, index_counters] = sort(counters, 'descend');

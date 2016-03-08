@@ -21,8 +21,9 @@ VALID(:, 1:end-2) = VALID(:, 1:end-2) ./ variances;
 K_SIZE = 20;
 predictions = zeros(rows(VALID), 1);
 
-accuracies = zeros(1, K_SIZE);
+accuracxies = zeros(1, K_SIZE);
 for k = 1:K_SIZE
+  k = 1
   fprintf('Using k=%d - ',k)
   predictions = predict(k,
                         TRAIN(:, 1:end-1),

@@ -84,3 +84,11 @@ In the matlab folder it is possible to find the my implementation of PCA, the fo
 	dimensions = 3;
 	Z     = projectData(X_norm, U, dimensions);
 	X_rec = recoverData(Z, U, dimensions);
+
+### More info
+
+For more information, check:
+
+* [Final Report](./paper/final_report.pdf)
+* [Summary](./presentation/summary.pdf)
+* [Presentation](./presentation/presentation.pdf)
